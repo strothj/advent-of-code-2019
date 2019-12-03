@@ -104,7 +104,7 @@ var day01PuzzleInput = `130762
 119501
 `
 
-var testCases = []struct {
+var day01TestCases = []struct {
 	value             string
 	expected          int
 	calculateFuelMass bool
@@ -118,8 +118,8 @@ var testCases = []struct {
 	{day01PuzzleInput, 5096223, true},
 }
 
-func TestDay01Part1(t *testing.T) {
-	for index, tt := range testCases {
+func TestDay01(t *testing.T) {
+	for index, tt := range day01TestCases {
 		t.Run(string(index), func(t *testing.T) {
 			actual := day01(tt.value, tt.calculateFuelMass)
 			if actual != tt.expected {
