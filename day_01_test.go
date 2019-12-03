@@ -2,15 +2,7 @@ package advent
 
 import "testing"
 
-var testCases = []struct {
-	value    string
-	expected int
-}{
-	{`12
-14
-1969
-100756`, 34241},
-	{`130762
+var day01PuzzleInput = `130762
 108691
 131618
 138163
@@ -110,13 +102,26 @@ var testCases = []struct {
 56085
 96504
 119501
-`, 3399394},
+`
+
+var testCases = []struct {
+	value             string
+	expected          int
+	calculateFuelMass bool
+}{
+	{`12
+14
+1969
+100756`, 34241, false},
+	{day01PuzzleInput, 3399394, false},
+	{`100756`, 50346, true},
+	{day01PuzzleInput, 5096223, true},
 }
 
-func TestAdvent(t *testing.T) {
+func TestDay01Part1(t *testing.T) {
 	for index, tt := range testCases {
 		t.Run(string(index), func(t *testing.T) {
-			actual := day01(tt.value)
+			actual := day01(tt.value, tt.calculateFuelMass)
 			if actual != tt.expected {
 				t.Errorf("got %v, want %v", actual, tt.expected)
 			}
