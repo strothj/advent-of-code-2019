@@ -1,4 +1,4 @@
-package advent
+package day02
 
 import "testing"
 
